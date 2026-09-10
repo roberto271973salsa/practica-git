@@ -1,0 +1,91 @@
+DEPARTAMENTOS_POR_PROVINCIA = {
+    "MENDOZA": [
+        "MENDOZA",
+        "CAPITAL",
+        "GENERAL ALVEAR",
+        "GODOY CRUZ",
+        "GUAYMALLÉN",
+        "JUNÍN",
+        "LA PAZ",
+        "LAS HERAS",
+        "LAVALLE",
+        "LUJÁN DE CUYO",
+        "MAIPÚ",
+        "MALARGÜE",
+        "RIVADAVIA",
+        "SAN CARLOS",
+        "SAN MARTÍN",
+        "SAN RAFAEL",
+        "SANTA ROSA",
+        "TUNUYÁN",
+        "TUPUNGATO",
+    ],
+    "SAN JUAN": [
+        "SAN JUAN",
+        "ALBARDÓN",
+        "ANGACO",
+        "CALINGASTA",
+        "CAPITAL",
+        "CAUCETE",
+        "CHIMBAS",
+        "IGLESIA",
+        "JÁCHAL",
+        "NUEVE DE JULIO",
+        "POCITO",
+        "RAWSON",
+        "RIVADAVIA",
+        "SAN MARTÍN",
+        "SANTA LUCÍA",
+        "SARMIENTO",
+        "ULLUM",
+        "VALLE FÉRTIL",
+        "VEINTICINCO DE MAYO",
+        "ZONDA",
+    ],
+    "SAN LUIS": [
+        "SAN LUIS",
+        "AYACUCHO",
+        "BELGRANO",
+        "CHACABUCO",
+        "CORONEL PRINGLES",
+        "GENERAL PEDERNERA",
+        "GOBERNADOR DUPUY",
+        "JUNÍN",
+        "LA CAPITAL",
+        "LIBERTADOR GENERAL SAN MARTÍN",
+    ],
+}
+
+OPCIONES_PROVINCIA = ["MENDOZA", "SAN JUAN", "SAN LUIS"]
+OPCIONES_TIPO = ["DE LINEA", "SATELITAL", "MDT"]
+OPCIONES_ESCALA = [
+    "1:10.000",
+    "1:15.000",
+    "1:25.000",
+    "1:50.000",
+    "1:100.000",
+    "1:250.000",
+    "1:500.000",
+    "FORMATO ESPECIAL",
+]
+
+AÑOS_EDICION = [str(anio) for anio in range(2026, 1939, -1)]
+
+COLUMNAS_TABLA = [
+    {"name": "id", "label": "ID", "field": "id", "sortable": True},
+    {"name": "nombre_hoja", "label": "NOMBRE", "field": "nombre_hoja"},
+    {"name": "numero_hoja", "label": "N° HOJA", "field": "numero_hoja"},
+    {"name": "departamento", "label": "DEPARTAMENTO", "field": "departamento"},
+    {"name": "edicion", "label": "EDICIÓN", "field": "edicion"},
+    {"name": "tipo", "label": "TIPO", "field": "tipo"},
+    {"name": "escala", "label": "ESCALA", "field": "escala"},
+    {"name": "provincia", "label": "PROVINCIA", "field": "provincia"},
+    {"name": "ubicacion", "label": "UBICACIÓN", "field": "ubicacion"},
+    {
+        "name": "cantidad",
+        "label": "CANTIDAD",
+        "field": "cantidad",
+        "sortable": True,
+    },  # <-- AGREGAR
+    {"name": "obs", "label": "OBSERVACIONES", "field": "obs"},
+]
