@@ -1,3 +1,4 @@
+from nicegui import ui
 import re
 from busqueda import pagina_busqueda
 from components import crear_dialogo_almanaque
@@ -14,6 +15,52 @@ from database import (
     obtener_registros,
 )
 from nicegui import ui
+
+def procesar_saludo(texto):
+    return texto.strip().upper()
+
+# 3. Lectura del archivo saludo.txt
+with open("saludo.txt", "r", encoding="utf-8") as archivo:
+    contenido = archivo.read()
+
+# 4. Uso del contenido leído
+print("El contenido del archivo es:")
+print(contenido)
+
+
+# 1. Función para validar las credenciales
+def intentar_login():
+    if input_user.value == "admin" and input_pass.value == "1234":
+        contenedor_login.visible = False
+        contenedor_contenido.visible = True
+        cargar_archivo()
+    else:
+        ui.notify('Usuario o contraseña incorrectos', type='negative')
+
+# 2. Función para leer el archivo saludo.txt
+def cargar_archivo():
+    try:
+        with open("saludo.txt", "r", encoding="utf-8") as archivo:
+            lbl_texto.text = archivo.read()
+    except FileNotFoundError:
+        lbl_texto.text = "Error: No se encontró el archivo 'saludo.txt'"
+
+# 3. Interfaz de Inicio de Sesión
+with ui.card().classes('absolute-center w-80 p-4') as contenedor_login:
+    ui.label('Inicio de Sesión').classes('text-h6')
+    input_user = ui.input('Usuario')
+    input_pass = ui.input('Contraseña', password=True, password_toggle_button=True)
+    ui.button('Ingresar', on_click=intentar_login).classes('w-full mt-4')
+
+# 4. Interfaz de Contenido (Oculta hasta iniciar sesión)
+with ui.card().classes('absolute-center w-96 p-4') as contenedor_contenido:
+    contenedor_contenido.visible = False
+    ui.label('Contenido de saludo.txt:').classes('text-h6 mb-2')
+    lbl_texto = ui.label('')
+
+# 5. Arrancar la aplicación
+ui.run(title='Mi geocatalogo', port=8080)
+
 
 
 def validar_numero_hoja(numero):
